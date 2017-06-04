@@ -1,12 +1,14 @@
-#Guides for the in-depth es6 udemy course
+# Practice based on wes bos javascript for every one tutorial
 
-###Please use this resource for the following reasons!
+### variables
 
-Find guides to each coding lecture.
+```javascript
+var width = 100;
 
-Discover answers to coding challenges and quizzes.
+let height = 200;
 
-Build a starter project for es6 in webpack.
-
-
-Enjoy the course, and keep coding!
+const key = 'abc123';
+```
+- var is a function scope but
+- let and const are block scope which works inside this { } brackets
+- 
