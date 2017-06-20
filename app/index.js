@@ -1,23 +1,8 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from "react";
+import ReactDOM from "react-dom";
 
-/*
-* Store picker
-*/
+import Layout from	"./components/layout";
 
-var StorePicker = React.createClass({
 
-    render: function(){
-        return (
-
-            <form>
-        		<h2>Another label</h2>
-        		<input type="text" className="form-control" />
-            	<input type="submit" />
-            </form>
-        )
-    }
-
-})
-
-ReactDOM.render(<StorePicker/>, document.querySelector('#main'));
+const app = document.getElementById('app');
+ReactDOM.render(<Layout/>, app);
