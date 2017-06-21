@@ -1,20 +1,20 @@
 import React from "react";
-import Header from "./Header"
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default class Layout extends React.Component{
 
 	constructor(){
 		super();
-		this.name = 'khan';
+		this.state = {name:"anik"};
 	}
-	
 	render(){
+		const title = "welcome to title"
 		return (
 			<div className="container">
-				<Header />
-				<h1>Does it work ?</h1>
-				<h1>It works :)</h1>
-				<span>It's {this.name}</span>
+				<Header title={title} />
+				<Header title={"Other title"} />
+				<Footer />
 			</div>
 		);
 	}
