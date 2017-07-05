@@ -23,13 +23,13 @@ class App extends Component {
         }
     }
     render() {
-    return (
-      <div className="App">
-        <span>My App</span>
-          <Projects projects="{this.state.projects}" />
-      </div>
-    );
-  }
+        return (
+          <div className="App">
+            <span>My App</span>
+              <Projects projects="{this.state.projects}" />
+          </div>
+        );
+    }
 }
 
 export default App;
