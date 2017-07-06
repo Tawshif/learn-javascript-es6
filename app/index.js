@@ -1,7 +1,8 @@
 // Import React
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router, Route, IndexRoute, hashHistory } from "react-router";
+
+import {Router, Route, IndexRoute, hashHistory} from "react-router";
 
 // Import layouts
 import Archives from	"./pages/Archives";
@@ -19,4 +20,5 @@ ReactDOM.render(
 			<Route path="settings" component={Settings}></Route>
 		</Route>
 	</Router>, 
+
 	app);
