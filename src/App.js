@@ -1,28 +1,41 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import Post from './components/Post';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gifs: []
+            posts: []
         }
     }
 
     componentDidMount(){
-        axios.get('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC')
+        axios.get(' http://localhost:8080/data')
         .then(response => {
-            let data = response.data.data;
-            console.log(data);
-            this.setState({ gifs: data });
+            console.log(response.data);
+            this.setState({ posts: response.data});
         })
         .catch(error => {
             console.log('Error fetching and parsing data', error);
         });
     }
 
-    // getGifs() {
+    renderPosts() {
+        return this.state.posts.map((post)=>{
+            return (
+                <Post value={this.props.post} />
+                // <li className="list-inline col-4" key={post.id}>
+                //     <strong>{post.title}</strong>
+                //     <p>{post.body}</p>
+                // </li>
+            )
+        })
+
+    }
+
+    // getPosts() {
     //     return this.state.gifs.map(function(item){
     //         console.log(item);
     //         //
@@ -30,74 +43,16 @@ class App extends Component {
     //     })
     // }
 
-    totalPrice(){
-        // this.state.total = this.state.qty * this.state.price;
-
-        this.setState({total: this.state.qty * this.state.price});
-        console.log(this.state.qty , this.state.price);
-    }
-
-    buy(){
-        this.setState({qty:this.state.qty + 1}, this.totalPrice);
-
-    }
-    remove() {
-        if (this.state.qty > 0) {
-            this.setState({qty: this.state.qty - 1}, this.totalPrice);
-        }
-    }
     render() {
         return (
-          <div className="App ui container">
+          <div className="container">
 
-              <h2>My App Is running ok</h2>
-              <ul className="ui relaxed divided list">
-                  <div className="ui link cards">
-                  {
-                      this.state.gifs.map((item)=>{
-                          return <div className="ui card" key={item.id}>
-                              <a href={item.embed_url}>
-                                  <div className="image">
-                                      <img src={item.images.downsized.url} />
-                                  </div>
-                              </a>
-                                <div className="content">
-                                    <h5 className="header">{item.id}</h5>
-                                </div>
-                          </div>
-                      })}
-                  </div>
+              <h2 className="my-4">My App Is running ok</h2>
+
+              <ul className="list-unstyled row">
+                  {/*{this.renderPosts()}*/}
+                <Post posts={this.state.posts} />
               </ul>
-
-
-
-
-
-
-
-{/*
-              <div className="ui cards">
-                  <div className="card">
-                      <div className="content">
-                          <div className="header">IPhone 6s - ${this.state.price}</div>
-                          <div className="description">
-                              <strong>Quantity : {this.state.qty} items</strong>
-                          </div>
-                      </div>
-                      <div className="content">
-                          <div className="description">
-                              Total Price : {this.state.total}
-                          </div>
-                      </div>
-                      <div className="extra content">
-                          <div className="ui two buttons">
-                              <div className="ui basic green button" onClick={() => this.buy()}>Buy</div>
-                              <div className="ui basic red button" onClick={()=> this.remove()}>Remove</div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-*/}
 
           </div>
         );
