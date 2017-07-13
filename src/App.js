@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
-import Post from './components/Post';
+import Posts from './components/Posts';
+import Filter from './components/Filter';
 
 class App extends Component {
     constructor(props) {
@@ -10,31 +10,11 @@ class App extends Component {
             posts: []
         }
     }
-
-    componentDidMount(){
-        axios.get(' http://localhost:8080/data')
-        .then(response => {
-            console.log(response.data);
-            this.setState({ posts: response.data});
-        })
-        .catch(error => {
-            console.log('Error fetching and parsing data', error);
-        });
-    }
-
-    renderPosts() {
-        return this.state.posts.map((post)=>{
-            return (
-                <Post value={this.props.post} />
-                // <li className="list-inline col-4" key={post.id}>
-                //     <strong>{post.title}</strong>
-                //     <p>{post.body}</p>
-                // </li>
-            )
-        })
-
-    }
-
+    // renderPosts() {
+    //     return (
+    //         <Posts value={posts} />
+    //     )
+    // }
     // getPosts() {
     //     return this.state.gifs.map(function(item){
     //         console.log(item);
@@ -46,14 +26,9 @@ class App extends Component {
     render() {
         return (
           <div className="container">
-
               <h2 className="my-4">My App Is running ok</h2>
-
-              <ul className="list-unstyled row">
-                  {/*{this.renderPosts()}*/}
-                <Post posts={this.state.posts} />
-              </ul>
-
+              <Filter />
+              <Posts />
           </div>
         );
     }
