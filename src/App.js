@@ -10,18 +10,6 @@ class App extends Component {
             posts: []
         }
     }
-    // renderPosts() {
-    //     return (
-    //         <Posts value={posts} />
-    //     )
-    // }
-    // getPosts() {
-    //     return this.state.gifs.map(function(item){
-    //         console.log(item);
-    //         //
-    //         return <li className="item">{ item.id }</li>;
-    //     })
-    // }
 
     render() {
         return (

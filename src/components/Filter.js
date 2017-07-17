@@ -20,8 +20,9 @@ class Filter extends Component{
         return (
             <form action="" className="form-group">
                 <div className="row">
-                    <div className="col-4">
+                    <div className="col-md-4">
                         <select value={this.state.value} onChange={this.filterList} className="form-control" >
+                            <option value="all">All</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>

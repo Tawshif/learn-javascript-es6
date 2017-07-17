@@ -22,9 +22,12 @@ class Posts extends Component{
 
     renderPosts() {
         return this.state.posts.map((post)=>{
-            return (
-                <Post value={post}/>
-            )
+            // console.log(post);
+            if (post.userId == 7){
+                return (
+                    <Post value={post}/>
+                )
+            }
         })
 
     }
