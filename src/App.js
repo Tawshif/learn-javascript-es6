@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Router, Route, Switch } from 'react-router';
 import './css/style.css';
 import StorePicker from "./Components/StorePicker";
 import Header from "./Components/Header";
@@ -7,6 +8,9 @@ import Inventory from "./Components/Inventory";
 
 class App extends Component {
 
+    /*
+     * Routes
+     */
 
     render() {
         return (
@@ -22,6 +26,13 @@ class App extends Component {
             </div>
         );
     }
+
+    render(
+        <Router>
+            <Route path="/" component={} />
+        </Router>
+    );
+
 }
 
 export default App;
