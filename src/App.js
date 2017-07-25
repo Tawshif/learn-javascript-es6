@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Router, Route, Switch } from 'react-router';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
 import './css/style.css';
 import StorePicker from "./Components/StorePicker";
 import Header from "./Components/Header";
@@ -8,31 +9,23 @@ import Inventory from "./Components/Inventory";
 
 class App extends Component {
 
-    /*
-     * Routes
-     */
-
     render() {
         return (
-            <div>
-                <div className="catch-of-the-day">
-                    <div className="menu">
-                        <Header tagline="Freash Sea Food Market" num="500" />
+            <Router>
+                <div>
+                    <div className="catch-of-the-day">
+                        <div className="menu">
+                            <Header tagline="Freash Sea Food Market" num="500" />
+                        </div>
+                        <Order/>
+                        <Inventory/>
                     </div>
-                    <Order/>
-                    <Inventory/>
+                    <StorePicker/>
                 </div>
-                <StorePicker/>
-            </div>
+            </Router>
         );
     }
-
-    render(
-        <Router>
-            <Route path="/" component={} />
-        </Router>
-    );
-
 }
+
 
 export default App;
